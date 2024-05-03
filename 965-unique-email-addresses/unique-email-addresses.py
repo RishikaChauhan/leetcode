@@ -20,5 +20,4 @@ class Solution:
                         new+=char
                     new_email = new+email[i:]
                 res.append(new_email)
-            print(res)
         return len(set(res))
