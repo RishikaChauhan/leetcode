@@ -10,6 +10,5 @@ class Solution:
                     indx.append(i)
                     res+=str(len(indx))
             return res
-            print(indx,res)
         return num_mapp(s)==num_mapp(t)
                 
