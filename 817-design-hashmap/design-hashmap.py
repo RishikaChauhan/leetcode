@@ -7,10 +7,9 @@ class MyHashMap:
         self.mp[key]=value
 
     def get(self, key: int) -> int:
-        if key not in self.mp:
-            return -1
-        else:
-            return self.mp[key]
+        # if self.mp[key] == 0: return 0
+        if key in self.mp: return self.mp[key]  
+        else: return -1
 
     def remove(self, key: int) -> None:
         if key in self.mp: del self.mp[key]
