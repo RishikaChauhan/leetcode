@@ -5,13 +5,13 @@ class Solution:
         print(set(pattern))
         if len(pattern)!= len(s): return False
         if len(set(pattern))!= len(set(s)): return False
-        for i in range(len(pattern)):
-            if pattern[i] not in d.keys():
-                d[pattern[i]]= [i,s[i]]
-        res1 = []
-        for i in pattern:
-            res1.append(d[i][1])
-        return res1==s
+        for i in range(len(s)):
+            if s[i] not in d.keys():
+                d[s[i]]= [i,pattern[i]]
+        res1 = ''
+        for i in s:
+            res1+=d[i][1]
+        return res1==pattern
         # print(d)
         # return True
         
