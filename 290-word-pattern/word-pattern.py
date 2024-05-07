@@ -7,11 +7,8 @@ class Solution:
         if len(set(pattern))!= len(set(s)): return False
         for i in range(len(s)):
             if s[i] not in d.keys():
-                d[s[i]]= [i,pattern[i]]
+                d[s[i]]= pattern[i]
         res1 = ''
         for i in s:
-            res1+=d[i][1]
+            res1+=d[i]
         return res1==pattern
-        # print(d)
-        # return True
-        
