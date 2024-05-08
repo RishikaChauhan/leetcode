@@ -1,12 +1,15 @@
+import hashlib
 class Codec:
-
+    def __init__(self):
+        self.urls={}
     def encode(self, longUrl: str) -> str:
-        return longUrl
-        
+        hash_to = 'https://tin.e/' +hashlib.md5(longUrl.encode()).hexdigest()
+        self.urls[hash_to] = longUrl
+        return hash_to
 
     def decode(self, shortUrl: str) -> str:
-        return shortUrl
-        
+        return self.urls[shortUrl]
+
         
 
 # Your Codec object will be instantiated and called as such:
