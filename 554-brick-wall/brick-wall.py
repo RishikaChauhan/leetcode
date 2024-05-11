@@ -7,7 +7,7 @@ class Solution:
         for i in wall:
             for j in range(len(i)):
                 d[sum(i[:j])]=1+ d.get(sum(i[:j]),0)
-        print(d)
+        # print(d)
         d[0]=0
         # d[w]=0
         return len(wall)-(max(list(d.values())))
