@@ -5,12 +5,14 @@ class Solution:
         w = sum(wall[0])
         # for i in range(1, w):
         for i in wall:
-            for j in range(len(i)):
-                d[sum(i[:j])]=1+ d.get(sum(i[:j]),0)
+            total=0
+            for j in range(len(i)-1):
+                total+=i[j]
+                d[total]=1+ d.get(total,0)
         # print(d)
         d[0]=0
         # d[w]=0
-        return len(wall)-(max(list(d.values())))
+        return len(wall)-max(list(d.values()))
         # countGap = { 0 : 0 }
 
         # for r in wall:
