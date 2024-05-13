@@ -3,16 +3,15 @@ class Solution:
         l1 = len(word1)
         l2 = len(word2)
         w3 = ""
-        if l1<l2:
-            for i in range(l1):
+        for i in range(min(l1,l2)):
                 w3+=word1[i]+word2[i]
-            return w3+ word2[l1:]
-        elif l2<l1:
-            for i in range(l2):
-                w3+=word1[i]+word2[i]
-            return w3+ word1[l2:]
-        else:
-            for i in range(l2):
-                w3+=word1[i]+word2[i]
-            return w3
+        return w3+ word2[l1:]+word1[l2:]
+        # elif l2<l1:
+        #     for i in range(l2):
+        #         w3+=word1[i]+word2[i]
+        #     return w3+ word1[l2:]
+        # else:
+        #     for i in range(l2):
+        #         w3+=word1[i]+word2[i]
+        #     return w3
 
