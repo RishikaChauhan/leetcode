@@ -27,7 +27,9 @@ class Solution:
         nums.sort()
         target=0
         # ilist=[]
-        for i in range(len(nums)):
+        for i in range(len(nums)-2):
+            if nums[i] > 0:
+                break
             if nums[i] ==nums[i-1] and i!=0:
                 continue
             else:
