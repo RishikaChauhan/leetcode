@@ -7,5 +7,5 @@ class Solution:
             if buy_price > p:
                 buy_price = p
             profit = max(profit, p - buy_price)
-            print(p, buy_price, profit)        
+            # print(p, buy_price, profit)        
         return profit
