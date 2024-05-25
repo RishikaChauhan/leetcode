@@ -1,10 +1,12 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        output, left,dic = 0,0,{}
-        for right in range(len(s)):
-            dic[s[right]]=1+dic.get(s[right],0)
-            while (right-left+1)-max(dic.values())>k:
-                dic[s[left]]-=1
-                left+=1
-            output = max(output, right-left+1)
-        return output
+        count = {}
+        l,r = 0, 0
+        res = 0
+        for r in range(len(s)):
+            count[s[r]]= count.get(s[r], 0)+1
+            while r-l+1 - max(count.values())>k:
+                count[s[l]]-=1
+                l+=1
+            res = max(res, r-l+1)
+        return res
