@@ -10,11 +10,13 @@ class Solution:
         pre = ListNode()
         pre.next = head
         curr = head
-        while curr:
-            nxt = curr.next
+        while curr and curr.next:
             if curr.val == val:
-                pre.next  = nxt
+                pre.next = curr.next
             else:
+
                 pre = curr
-            curr = nxt
+            curr = curr.next
+        if curr and curr.val ==val:
+            pre.next = None
         return head
