@@ -28,7 +28,8 @@ class Solution:
             t = nt.next
             if stack!= []:
                 nt.next = stack.pop()
+                nt.next.next = t
+                nt = t
             else: break
-            nt.next.next = t
-            nt = t
+            
         return head
