@@ -9,17 +9,13 @@ class Solution:
         prev, curr = dummy, head
 
         while curr and curr.next:
-            # save ptrs
-            nxtPair = curr.next.next
+            nxtpair = curr.next.next
             second = curr.next
 
-            # reverse this pair
             second.next = curr
-            curr.next = nxtPair
+            curr.next = nxtpair
             prev.next = second
 
-            # update ptrs
             prev = curr
-            curr = nxtPair
-
+            curr = nxtpair
         return dummy.next
