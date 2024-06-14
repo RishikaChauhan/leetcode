@@ -18,15 +18,15 @@ class Solution:
             cur = cur.right
         return res
 
-        # Recursive
-        res = []
+        # # Recursive
+        # res = []
 
-        def helper(root):
-            if not root:
-                return
-            helper(root.left)
-            res.append(root.val)
-            helper(root.right)
+        # def helper(root):
+        #     if not root:
+        #         return
+        #     helper(root.left)
+        #     res.append(root.val)
+        #     helper(root.right)
 
-        helper(root)
-        return res
+        # helper(root)
+        # return res
