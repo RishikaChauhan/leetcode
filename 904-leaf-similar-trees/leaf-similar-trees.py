@@ -26,7 +26,7 @@ class Solution:
         
         leaf1(root1)
         leaf2(root2)
-        print(l1)            
-        print(l2)
+        # print(l1)            
+        # print(l2)
 
         return l1==l2
