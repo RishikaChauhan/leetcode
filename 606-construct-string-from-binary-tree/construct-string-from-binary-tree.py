@@ -11,24 +11,15 @@ class Solution:
         return "".join(res)
     
     def dfs(self, t: TreeNode, res: list):
-        # If the current node is None, do nothing and return
-        if t is None:
-            return
+        if t is None: return 
         res.append(str(t.val))
-
-        # If both left and right children are None, return as there are no more branches to explore
         if t.left is None and t.right is None:
             return
-        res.append('(')
-
-        # Recursively call the DFS function for the left child
+        res.append("(")
         self.dfs(t.left, res)
-        res.append(')')
+        res.append(")")
         if t.right is not None:
-            res.append('(')
-
-            # Recursively call the DFS function for the right child
+            res.append("(")
             self.dfs(t.right, res)
-            res.append(')')
-            
-
+            res.append(")")
+        return res
