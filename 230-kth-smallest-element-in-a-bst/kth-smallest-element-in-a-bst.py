@@ -17,5 +17,5 @@ class Solution:
                 if root.right: inorder(root.right)
             return res
         res = inorder(root)
-        print(res)
+        # print(res)
         return res[k-1]
