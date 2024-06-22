@@ -1,5 +1,23 @@
 class Solution:
     def numTrees(self, n: int) -> int:
+        # def solve(n):
+        #     if n<=1:
+        #         return 1
+        #     if n in memo:
+        #         return memo[n]
+        #     ans = 0
+        #     for i in range(1,n+1):
+        #         left= solve(i-1)
+        #         right = solve(n-i)
+        #         ans+=left*right
+        #     memo[n] = ans
+        #     return memo[n]
+        # memo = {}
+        # return solve(n)
+        
+        
+        
+        
         def solve(n):
             if n <= 1:
                 return 1
