@@ -1,9 +1,16 @@
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:    
-        anagram_map = defaultdict(list)
-        
-        for word in strs:
-            sorted_word = ''.join(sorted(word))
-            anagram_map[sorted_word].append(word)
-        
-        return list(anagram_map.values())
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = []
+        d = {}
+        # print(d["a"])
+        for i in strs:
+            a = "".join(sorted(i))
+            # print(a)
+            # print(d)
+            if a in list(d.keys()):
+                d[a].append(i)
+                # print(d[a])
+            else:
+                d[a]=[i]
+                # pass
+        return list(d.values())
