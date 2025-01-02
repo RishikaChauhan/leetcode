@@ -1,37 +1,11 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res =[]
-        d = {}
+        d= {}
         for i in strs:
-            a = "".join(sorted(i))
-            if a in list(d.keys()):
-                d[a].append(i)       
+            print(''.join(sorted(i)))
+            if ''.join(sorted(i)) in d.keys():
+                d[''.join(sorted(i))].append(i)
             else:
-                d[a]=[i]
+                d[''.join(sorted(i))]=[i]
+
         return list(d.values())
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        # res = []
-        # d = {}
-        # for i in strs:
-        #     a = "".join(sorted(i))
-        #     if a in list(d.keys()):
-        #         d[a].append(i)
-        #     else:
-        #         d[a]=[i]
-        # return list(d.values())
