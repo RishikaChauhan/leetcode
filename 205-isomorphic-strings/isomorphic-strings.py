@@ -5,7 +5,7 @@ class Solution:
             for i in s:
                 if i not in d.keys():
                     d[i] = len(d)+1
-            print(d, d.values())
+            # print(d, d.values())
             return d
 
         d1 = fun(s)
