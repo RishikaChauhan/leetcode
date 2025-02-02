@@ -1,14 +1,20 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        def num_mapp(s):           
-            indx = []
-            res = ''
+        def fun(s):
+            d = {}
             for i in s:
-                if i in indx:
-                    res+=str(indx.index(i)+1)
-                else:
-                    indx.append(i)
-                    res+=str(len(indx))
-            return res
-        return num_mapp(s)==num_mapp(t)
-                
+                if i not in d.keys():
+                    d[i] = len(d)+1
+            print(d, d.values())
+            return d
+
+        d1 = fun(s)
+        d2 = fun(t)
+        q = []
+        for i in s:
+            q.append(d1[i])
+        r = []
+        for i in t: 
+            r.append(d2[i])
+        print(q,r)
+        return q==r
