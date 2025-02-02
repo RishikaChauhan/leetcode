@@ -16,5 +16,5 @@ class Solution:
         r = []
         for i in t: 
             r.append(d2[i])
-        print(q,r)
+        # print(q,r)
         return q==r
