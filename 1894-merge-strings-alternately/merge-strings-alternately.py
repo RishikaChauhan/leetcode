@@ -1,17 +1,9 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        l1 = len(word1)
-        l2 = len(word2)
-        w3 = ""
-        for i in range(min(l1,l2)):
-                w3+=word1[i]+word2[i]
-        return w3+ word2[l1:]+word1[l2:]
-        # elif l2<l1:
-        #     for i in range(l2):
-        #         w3+=word1[i]+word2[i]
-        #     return w3+ word1[l2:]
-        # else:
-        #     for i in range(l2):
-        #         w3+=word1[i]+word2[i]
-        #     return w3
+        m = min(len(word1), len(word2))
+        s = ""
+        for i in range(m):
+            s +=word1[i]+word2[i]
+        s = s+ word1[i+1:] if word1[i+1:] else s+word2[i+1:]
 
+        return s
