@@ -27,9 +27,17 @@ class Solution:
 
         if not lists or len(lists) == 0:
             return None
-        l1 = lists[0]
-        for i in range(1, len(lists)):
-            # print(l1)
-            l1 = mer_two_list(l1, lists[i])
-            
-        return l1
+        # l1 = lists[0]
+        
+
+        while len(lists)>1:
+            t = []
+            for i in range(0, len(lists), 2):
+                # print(l1)
+                l1 = lists[i]
+                l2 = lists[i+1] if i+1 <len(lists) else None
+                t.append(mer_two_list(l1, l2))
+                # l1 = mer_two_list(l1, lists[i])
+            lists = t
+                
+        return lists[0]
