@@ -10,8 +10,12 @@ class Solution:
         def height(root):
             if not root: return 0
             leftheight, rightheight = height(root.left), height(root.right)
-            # return 1+ max(leftheight, rightheight)
-            if leftheight<0 or rightheight<0 or abs(leftheight-rightheight)>1: return -1
-            return max(leftheight, rightheight)+1
+            return 1+ max(leftheight, rightheight)
+            # if leftheight<0 or rightheight<0 or abs(leftheight-rightheight)>1: return -1
+            # return max(leftheight, rightheight)+1
+
+        
         if not root: return True
-        return (height(root))>=0
+        if abs(height(root.left)- height(root.right))>1: return False
+
+        return self.isBalanced(root.left) and self.isBalanced(root.right)
