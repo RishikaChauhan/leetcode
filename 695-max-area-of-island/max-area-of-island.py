@@ -9,7 +9,8 @@ class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         s = set()
         def dfs(m,n):
-            if f"{m}_{n}".format(m=m, n=n) in s or grid[m][n]==0:
+            if f"{m}_{n}".format(m=m, n=n) in s or grid[m][n]==0 or (m < 0 or m >= len(grid) or 
+                n < 0 or n >= len(grid[0])):
                 return 0
             
             
