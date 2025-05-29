@@ -29,7 +29,7 @@ class Solution:
         max_area = 0
         for i in range(m):
             for j in range(n):
-                if grid[i][j] ==1:
+                if grid[i][j] ==1 and f"{m}_{n}".format(m=i, n=j) not in s:
                     
                     area = dfs(i,j)
                     max_area = max(max_area, area)
