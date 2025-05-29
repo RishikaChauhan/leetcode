@@ -1,37 +1,32 @@
-# m,n
-# m+1, n+1
-# m+1, n-1
-# m-1, n+1
-# m-1, n-1
-
-
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        s = set()
-        def dfs(m,n):
-            if f"{m}_{n}".format(m=m, n=n) in s or grid[m][n]==0 or (m < 0 or m >= len(grid) or 
-                n < 0 or n >= len(grid[0])):
+        # Maintain a set of visited cells
+        visited = set()
+
+        def dfs(m, n):
+            # Check boundary conditions and whether the cell is already visited or is water
+            if (m < 0 or m >= len(grid) or 
+                n < 0 or n >= len(grid[0]) or 
+                (m, n) in visited or grid[m][n] == 0):
                 return 0
+
+            # Mark the cell as visited
+            visited.add((m, n))
             
-            
-            if grid[m][n]==1:
-                area=1
-                s.add(f"{m}_{n}".format(m=m, n=n))
-                if m+1<len(grid): area+=dfs(m+1,n)
-                if m-1>=0: area+=dfs(m-1,n)
-                if n-1>=0: area+=dfs(m,n-1)
-                if n+1<len(grid[0]): area+=dfs(m,n+1)
-            
+            # Compute the area by DFS on all four possible directions
+            area = 1
+            area += dfs(m + 1, n)
+            area += dfs(m - 1, n)
+            area += dfs(m, n + 1)
+            area += dfs(m, n - 1)
             return area
-
-
-        m= len(grid)
-        n=len(grid[0])
+        
         max_area = 0
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] ==1 and f"{m}_{n}".format(m=i, n=j) not in s:
-                    
-                    area = dfs(i,j)
-                    max_area = max(max_area, area)
+        # Iterate over each cell in the grid
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1 and (i, j) not in visited:
+                    # Calculate area for the current island
+                    max_area = max(max_area, dfs(i, j))
+        
         return max_area
