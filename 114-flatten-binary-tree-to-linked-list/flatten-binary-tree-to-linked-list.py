@@ -5,23 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def flatten(self, node: Optional[TreeNode]) -> None:
-        if not node: return 
-        def dfs(root):
-            head = root
-            if not root: return None
-            l = dfs(root.left)
-            r = dfs(root.right)
-            
-            if root.left:
-                temp = r
-                root.right = l
-                root.left = None
-                while root.right: 
-                    root = root.right
-                    # root.left = None
-                root.right = r
-                # dfs(root.left)
-            return head
-        head = dfs(node)  
-        return head
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        if not root: return
+        def dfs(node):
+            h =node
+            if not node: return None
+            l = dfs(node.left)
+            r = dfs(node.right)
+            if node.left:
+                # temp = r
+                node.right = node.left
+                node.left = None
+                while node.right:
+                    node = node.right
+                node.right=r
+            return h
+        head = dfs(root)
+        return root
+        
